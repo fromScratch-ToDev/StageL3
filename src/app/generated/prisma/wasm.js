@@ -126,7 +126,6 @@ exports.Prisma.TableauScalarFieldEnum = {
 };
 
 exports.Prisma.GalerieScalarFieldEnum = {
-  id: 'id',
   nom_fr: 'nom_fr',
   nom_en: 'nom_en',
   presentation_fr: 'presentation_fr',

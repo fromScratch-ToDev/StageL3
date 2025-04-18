@@ -13,13 +13,12 @@ model Tableau {
   imagePath      String
   description_fr String
   description_en String
-  laGalerieId    Int
-  laGalerie      Galerie @relation(fields: [laGalerieId], references: [id])
+  laGalerieId    String
+  laGalerie      Galerie @relation(fields: [laGalerieId], references: [nom_fr])
 }
 
 model Galerie {
-  id              Int       @id @default(autoincrement())
-  nom_fr          String
+  nom_fr          String     @id
   nom_en          String
   presentation_fr String
   presentation_en String
