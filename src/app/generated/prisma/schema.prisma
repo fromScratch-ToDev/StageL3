@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Tableau {
+  id             Int     @id @default(autoincrement())
+  imagePath      String
+  description_fr String
+  description_en String
+  laGalerieId    Int
+  laGalerie      Galerie @relation(fields: [laGalerieId], references: [id])
+}
+
+model Galerie {
+  id              Int       @id @default(autoincrement())
+  nom_fr          String
+  nom_en          String
+  presentation_fr String
+  presentation_en String
+  tableaux        Tableau[]
+}
