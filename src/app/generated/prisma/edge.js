@@ -130,7 +130,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/root/Documents/Site Stage L3/espaces_interieurs/src/app/generated/prisma",
+      "value": "C:\\Users\\thiba\\Documents\\espaces_interieurs\\src\\app\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -139,12 +139,12 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "debian-openssl-1.1.x",
+        "value": "windows",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/root/Documents/Site Stage L3/espaces_interieurs/prisma/schema.prisma",
+    "sourceFilePath": "C:\\Users\\thiba\\Documents\\espaces_interieurs\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {

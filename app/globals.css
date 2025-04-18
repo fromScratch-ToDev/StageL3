@@ -5,15 +5,24 @@
   --foreground: #171717;
   --primary: #D1A26A;
   --secondary: #381910;
+  --tertiary: #5A281A;
 }
+body {
+  @apply text-secondary; 
+}
+li:hover{
+  text-decoration-line: underline;
+}
+
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-tertiary: var(--tertiary);
+  --font-merriweather: var(--meriweather);
+  --font-poppins: var(--poppins);
 }
 
 @media (prefers-color-scheme: dark) {
