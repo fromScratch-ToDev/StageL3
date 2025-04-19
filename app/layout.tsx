@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Merriweather, Playfair_Display, Poppins } from 'next/font/google';
+import "./embla.css";
 import "./globals.css";
 
 const playfair = Playfair_Display({
