@@ -1,0 +1,1 @@
+Utiliser le context de galerie pour définir les galeries lorsque le menu les fetch et pouvoir l'utliser ailleurs

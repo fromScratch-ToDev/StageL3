@@ -6,13 +6,14 @@ export async function GET() {
   try {
     // Récupération des noms de galeries
     const galeries = await prisma.galerie.findMany({
-      select: { nom_fr: true }, // Seulement le nom en français
+      select: { 
+        nom_fr: true,
+        nom_en: true 
+      }
     });
 
-    // Transformation des résultats en tableau de noms
-    const nomGaleries = galeries.map((galerie) => galerie.nom_fr);
 
-    return NextResponse.json(nomGaleries);
+    return NextResponse.json(galeries);
   } catch (error) {
     console.error('Erreur lors de la récupération des galeries :', error);
     return NextResponse.json({ error: 'Erreur serveur.' }, { status: 500 });

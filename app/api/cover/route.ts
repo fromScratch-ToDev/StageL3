@@ -4,9 +4,7 @@
 import prisma from '@/lib/prisma';
 import { NextResponse } from 'next/server';
 
-export async function GET(req: Request){    
-  const { searchParams } = new URL(req.url);
-  const lang = searchParams.get('lang');
+export async function GET(){    
     try {
        // Récupération des noms de galeries
       const covers = await prisma.galerie.findMany({
@@ -26,10 +24,10 @@ export async function GET(req: Request){
       const transformedCovers = covers
       .filter(c => c.tableaux.length > 0)
       .map(c => {
-        const nom = lang === "FR" ? c.nom_fr : c.nom_en;
         return ({
-          nom,
-          path: c.tableaux[0].imagePath
+          nom_fr : c.nom_fr,
+          nom_en : c.nom_en,
+          path : c.tableaux[0].imagePath
         })
       });
       

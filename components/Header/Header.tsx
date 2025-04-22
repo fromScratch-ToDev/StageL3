@@ -1,25 +1,25 @@
 "use client"
 
-import { Dispatch, SetStateAction, useState } from "react";
+import { LangContext, SetLangContext } from "@/context/Context";
+import { useContext } from "react";
 import Menu from "./Menu";
 import Toggle from "./Toggle";
 
-export default function Header(props : {isAccueil? : boolean, set_lang : Dispatch<SetStateAction<string>>}) {
+export default function Header(props : {isAccueil? : boolean}) {
     const isAccueil = props.isAccueil;
-    const set_lang = props.set_lang;
-    const [lang, setLang] = useState("FR")
+    const lang = useContext(LangContext);
+    const set_lang = useContext(SetLangContext);
     
     function handleClick() {
         const newLang = lang === "FR" ? "EN" : "FR";
-        setLang(newLang);
         set_lang(newLang);
     }
 
     return(
-        <div className="flex flex-row justify-between w-full h-1/12">
+        <div className="flex flex-row justify-between w-full h-1/12 pt-6 px-12">
             <div className="w-max h-full">
                 <p className="text-3xl font-merriweather">François Malespine</p>
-                {! isAccueil && <p className="text-xl text-tertiary font-poppins">Espaces Intérieurs</p>}
+                {! isAccueil && <p className="text-xl text-tertiary font-poppins"> {lang === "FR" ? "Espaces Intérieurs" : "Interior Spaces"}</p>}
             </div>
             <div className="flex flex-row gap-10 h-full ">
                 <Menu></Menu>
