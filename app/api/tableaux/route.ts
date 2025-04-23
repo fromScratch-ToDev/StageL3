@@ -2,23 +2,9 @@ import prisma from '@/lib/prisma';
 import { NextResponse } from 'next/server';
 
 // GET /api/tableaux?nom=NomDeGalerie
-export async function GET(req: Request) {
-  const { searchParams } = new URL(req.url);
-  const nom = searchParams.get('nom');
-  
-  if (!nom) {
-    return NextResponse.json({ error: 'Paramètre "nom" manquant.' }, { status: 400 });
-  }
-
+export async function GET() {
   try {
-    const tableaux = await prisma.tableau.findMany({
-      where: {
-        OR: [
-          { laGalerie: { nom_fr: nom } },
-          { laGalerie: { nom_en: nom } },
-        ]
-      }
-    });
+    const tableaux = await prisma.tableau.findMany();
 
     return NextResponse.json(tableaux);
   } catch (error) {

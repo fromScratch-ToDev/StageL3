@@ -1,3 +1,4 @@
+"use client"
 import { LangContext } from "@/context/Context";
 import { useContext } from "react";
 

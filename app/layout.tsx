@@ -1,3 +1,4 @@
+import { GaleriesProvider, LangProvider, TableauxProvider } from "@/context/Context";
 import type { Metadata } from "next";
 import { Merriweather, Playfair_Display, Poppins } from 'next/font/google';
 import "./embla.css";
@@ -38,7 +39,13 @@ export default function RootLayout({
       <body
         className={`${playfair.className} ${merriweather.variable} ${poppins.variable} antialiased bg-primary flex flex-col gap-5 max-w-screen min-h-screen`}
       >
-        {children}
+        <LangProvider>
+          <GaleriesProvider>
+            <TableauxProvider>
+              {children}
+            </TableauxProvider>
+          </GaleriesProvider>
+        </LangProvider>
       </body>
     </html> 
   );

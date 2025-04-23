@@ -64,7 +64,7 @@ const Carousel: React.FC<PropType> = (props) => {
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container gap-10">
           {slides.map((slide ) => (  
-            <Link href={`/galerie?nom=${slide.nom_fr}`} key={slide.nom_fr} onClick={() => localStorage.setItem("nom_en", slide.nom_en)}>
+            <Link href={`/galerie?nom=${slide.nom_fr}`} key={slide.nom_fr}>
               <div className="embla__slide aspect-[2/3] w-[25vw] max-w-100  relative" >
                 <Image className='object-cover border-black border-1' fill src={slide.path} sizes="(min-width: 1024px) 25vw, 50vw" alt='image de couverture de la galerie'></Image>
               </div>

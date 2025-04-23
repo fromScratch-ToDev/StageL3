@@ -8,7 +8,6 @@ import Header from "@/components/Header/Header";
 import H1 from "@/components/Text/H1";
 import H2 from "@/components/Text/H2";
 import P from "@/components/Text/P";
-import { LangProvider } from "@/context/Context";
 import { EmblaOptionsType } from 'embla-carousel';
 import Image from "next/image";
 import Link from "next/link";
@@ -18,7 +17,7 @@ export default function Accueil() {
   const OPTIONS: EmblaOptionsType = { dragFree: true }
 
   return (
-    <LangProvider>
+    <>
       <section className="flex flex-col gap-5 w-full h-screen ">
           <Header isAccueil={true} ></Header>
           <div className="h-full relative mt-6 mx-12">
@@ -41,7 +40,7 @@ export default function Accueil() {
                 It continues with an overview of my exhibitions in France and the United States. As for the latter, I owe it to Scott Deroy that I had the joy of exhibiting in Los Angeles, San Francisco, and San Diego (California).
                 The page concludes with a selection of press articles.`
               }></P>
-            <Link href="/biographie">
+            <Link href="/expositions">
               <Button text_fr="Découvrir" text_en="Discover" className="mt-12" ></Button>
             </Link>
           </div>
@@ -51,7 +50,7 @@ export default function Accueil() {
         </section>
       </MainSection>
       <Footer></Footer>
-  </LangProvider>
+  </>
   )
 
 }
