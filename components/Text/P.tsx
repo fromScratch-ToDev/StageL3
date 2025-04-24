@@ -10,7 +10,8 @@ export default function P(props : {text_fr : string | undefined, text_en : strin
   const size = props.size ? props.size : "md"   
   const sizeMap: Record<string, string> = {
     xs: 'text-[8px] lg:text-[10px] xl:text-xs 2xl:text-sm',
-    md: 'text-sm lg:text-base xl:text-lg 2xl:text-xl',
+    sm: 'text-xs lg:text-sm xl:text:base 2xl:text-lg',
+    md: 'text-sm lg:text-base xl:text-lg 2xl:text-xl'
   };
   const lang = useContext(LangContext);
 

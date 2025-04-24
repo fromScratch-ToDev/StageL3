@@ -1,6 +1,6 @@
 "use client"
 
-import { LangContext } from '@/context/Context'
+import { GaleriesContext, LangContext, TableauxContext } from '@/context/Context'
 import { EmblaOptionsType } from 'embla-carousel'
 import useEmblaCarousel from 'embla-carousel-react'
 import Image from 'next/image'
@@ -44,20 +44,29 @@ const Carousel: React.FC<PropType> = (props) => {
 
   const [slides, set_slides] = useState<Slide[]>([]);     
   const lang = useContext(LangContext);
+  const galeries = useContext(GaleriesContext);
+  const tableaux = useContext(TableauxContext);
 
 
   useEffect(() => {
-      async function fetchCovers(){
-        const res = await fetch(`/api/cover?lang=${lang}`);
-        if (res.ok){
-          const new_slides = await res.json();
-          
-          set_slides(new_slides);
-        } 
-      } 
-      fetchCovers();
+    
 
-  }, [lang]);
+      const new_slides : Slide[] = galeries.filter(galerie => tableaux.find((tableau) => tableau.laGalerieId === galerie.nom_fr) !== undefined)
+        .map((galerie)=> {
+          const nom_fr = galerie.nom_fr;
+          const nom_en = galerie.nom_en;
+          const tableau = tableaux.find(tableau => tableau.laGalerieId === nom_fr)
+          const slide : Slide = {
+            nom_fr,
+            nom_en,
+            path : tableau ? tableau.imagePath : "" 
+          }
+        return slide
+      })
+      set_slides(new_slides); 
+    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [lang]);
 
   return (
     <section className="embla mt-10 border-b-1 border-black">

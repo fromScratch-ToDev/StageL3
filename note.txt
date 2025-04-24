@@ -1,1 +1,2 @@
-trouver un moyen de manipuler le context des tableaux
+contact - mobile first
+expositions - mobile first

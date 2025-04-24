@@ -23,7 +23,11 @@ li:hover{
   --color-tertiary: var(--tertiary);
   --font-merriweather: var(--meriweather);
   --font-poppins: var(--poppins);
+  --breakpoint-3xl: 112rem;
+  --breakpoint-4xl: 128rem;
+  --text-10xl: 10rem; 
 }
+
 
 @media (prefers-color-scheme: dark) {
   :root {
