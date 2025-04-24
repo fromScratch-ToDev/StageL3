@@ -49,8 +49,6 @@ const Carousel: React.FC<PropType> = (props) => {
 
 
   useEffect(() => {
-    
-
       const new_slides : Slide[] = galeries.filter(galerie => tableaux.find((tableau) => tableau.laGalerieId === galerie.nom_fr) !== undefined)
         .map((galerie)=> {
           const nom_fr = galerie.nom_fr;
@@ -65,10 +63,9 @@ const Carousel: React.FC<PropType> = (props) => {
       })
       set_slides(new_slides); 
     
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [lang]);
+    }, [lang, galeries, tableaux]);
 
-  return (
+    return (
     <section className="embla mt-10 border-b-1 border-black">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container gap-10">

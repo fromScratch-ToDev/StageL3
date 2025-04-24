@@ -1,47 +1,40 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
+import { LangContext } from "@/context/Context";
+import { useContext } from "react";
+import Button from "../Button/Button";
+import H2 from "../Text/H2";
 
 export default function ContactForm() {
+  const lang = useContext(LangContext);
+
+
+  function handleAction(formData : FormData){
+    console.log("envoyer");
+    console.log(formData.get("email"));
+    console.log(formData.get("subject"));
+    console.log(formData.get("message"));
+  }
+
   return (
-    <div className="w-full max-w-2xl mx-auto p-4">
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-2xl font-bold">Contactez-nous</CardTitle>
-          <CardDescription>
-            Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Label htmlFor="nom">Nom</Label>
-                <Input id="nom" placeholder="Votre nom" />
+    <section className="">
+      <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+          <H2 className="mb-4 font-bold text-center font-merriweather" text_fr={"Contactez-moi"} text_en={"Contact Me"} no_padding={true}></H2>
+          <form action={handleAction} className="space-y-8">
+              <div>
+                  <label htmlFor="email" className="block mb-2 text-sm md:text-base xl:text-lg font-medium ">{lang === "FR" ? "Votre email" : "Your email"}</label>
+                  <input type="email" id="email" name="email" className="block p-2.5 w-full text-sm rounded-lg border border-secondary shadow-sm focus:outline focus:outline-secondary " placeholder="exemple@gmail.com" required/>
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="prenom">Prénom</Label>
-                <Input id="prenom" placeholder="Votre prénom" />
+              <div>
+                  <label htmlFor="subject" className="block mb-2 text-sm md:text-base xl:text-lg font-medium ">{lang === "FR" ? "Sujet" : "Subject"}</label>
+                  <input type="text" id="subject" name="subject" className="block p-2.5 w-full text-sm rounded-lg border shadow-sm focus:outline focus:outline-secondary " placeholder={lang === "FR" ? "De quoi souhaitez vous parler" : "What would you like to talk about?"} required/>
               </div>
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" placeholder="votre.email@exemple.com" />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="message">Message</Label>
-              <Textarea id="message" placeholder="Votre message..." className="min-h-[120px]" />
-            </div>
+              <div className="sm:col-span-2">
+                  <label htmlFor="message" className="block mb-2 text-sm md:text-base xl:text-lg font-medium ">{lang === "FR" ? "Votre message" : "Your message"}</label>
+                  <textarea id="message" name="message" rows={6} className="block p-2.5 w-full text-sm rounded-lg shadow-sm border focus:outline focus:outline-secondary " placeholder={lang === "FR" ? "Votre message..." : "Your message ..."} required></textarea>
+              </div>
+              <Button type="submit" text_fr="Envoyer l'email" text_en="Send email" className="shadow-sm"></Button>
+
           </form>
-        </CardContent>
-        <CardFooter>
-          <Button type="submit" className="w-full md:w-auto">
-            Envoyer
-          </Button>
-        </CardFooter>
-      </Card>
-    </div>
+      </div>
+    </section>
   )
 }
