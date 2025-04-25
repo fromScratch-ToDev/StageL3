@@ -58,7 +58,7 @@ const Carousel: React.FC<PropType> = (props) => {
                 className={`embla__slide ${className} aspect-${slide.aspect}`}
               >
                 <Image
-                  className={`border-black border-1 `}
+                  className={` object-cover`}
                   fill
                   src={slide.path}
                   sizes="(min-width: 1024px) 25vw, 50vw"

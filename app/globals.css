@@ -4,7 +4,8 @@
   --background: #ffffff;
   --foreground: #171717;
   --primary: #D1A26A;
-  --secondary: #381910;
+  --primary-darken: #ca9352;
+  --secondary:  #381910;
   --tertiary: #5A281A;
 }
 body {
@@ -19,6 +20,7 @@ a:hover{
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
+  --color-primary-darken: var(--primary-darken);
   --color-secondary: var(--secondary);
   --color-tertiary: var(--tertiary);
   --font-merriweather: var(--meriweather);

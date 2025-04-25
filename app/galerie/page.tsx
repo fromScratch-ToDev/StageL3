@@ -45,7 +45,7 @@ export default function Galerie() {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full">
             {tableaux.map((tableau) => (
-              <div onClick={() => handleClick(tableau.id)} key={tableau.id} className="aspect-square relative bg-black/20 cursor-pointer">
+              <div onClick={() => handleClick(tableau.id)} key={tableau.id} className="aspect-square relative bg-black/20 cursor-zoom-in">
                 <Image
                   src={tableau.imagePath}
                   alt={`Image ${tableau.id}`}

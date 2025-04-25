@@ -46,7 +46,7 @@ export default function Accueil() {
   return (
     <>
       <H2 text_fr="Découvrez les galeries" text_en="Discover the galleries"></H2>
-      <Carousel slides={slides} options={OPTIONS} className=" md:w-[25vw] 2xl:w-[20vw] aspect-2/3 min-h-[40vh] md:min-h-auto"></Carousel>
+      <Carousel slides={slides} options={OPTIONS} className=" md:w-[25vw] 2xl:w-[20vw] aspect-2/3 min-h-[40vh] md:min-h-auto border-black border-1"></Carousel>
       <section className="flex flex-col md:flex-row w-full">
         <div className="flex-1">
           <H2 text_fr="Expositions" text_en="Exhibitions"></H2>

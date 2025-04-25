@@ -9,7 +9,8 @@ import MenuMobile from "./MenuMobile";
 import Toggle from "./Toggle";
 
 
-export default function Menu(){
+export default function Menu(props : {isNotAccueil ?: boolean}){
+    const isNotAccueil = props.isNotAccueil
     const [afficher_sous_menu, set_afficher_sous_menu] = useState(false); 
     const galeries = useContext(GaleriesContext);
     const lang = useContext(LangContext);    
@@ -43,10 +44,10 @@ export default function Menu(){
                 <nav className="flex justify-between w-full gap-3 text-lg lg:text-xl xl:text-2xl h-full">
                     <Link href="/">{lang === "FR" ? "Accueil" : "Home"}</Link>
                     
-                    <div className="z-1  cursor-pointer" onMouseEnter={() => set_afficher_sous_menu(true)} onMouseLeave={() => set_afficher_sous_menu(false)}>
+                    <div className="z-1  cursor-pointer " onMouseEnter={() => set_afficher_sous_menu(true)} onMouseLeave={() => set_afficher_sous_menu(false)}>
                     {lang === "FR" ? "Galeries" : "Galleries"}
                         {afficher_sous_menu && 
-                        <ul className="flex flex-col text-base bg-primary absolute -translate-x-4 pb-2 border-l-1 border-b-1 shadow-[4px_4px_4px_-2px_rgba(0,0,0,0.1)]">
+                        <ul className={`flex flex-col text-base ${isNotAccueil ? "bg-primary-darken" : "bg-primary"} z-10 absolute -translate-x-4 pb-2 shadow-[4px_4px_4px_-2px_rgba(0,0,0,0.1)]`}>
                             {galeries.map((nom_galerie) => (
                                 <Link className="px-4 pt-1"  key={nom_galerie.nom_fr} href={`/galerie?nom=${nom_galerie.nom_fr}`}><P text_fr={nom_galerie.nom_fr} text_en={nom_galerie.nom_en}></P></Link>
                             ))}
