@@ -65,7 +65,7 @@ function Biographie() {
   return (
     <>
       <H2 text_fr="Parcours d’une vie" text_en="A life's journey" className="text-center"/>
-      <P text_fr={text_fr} text_en={text_en} className="text-justify"/>
+      <P text_fr={text_fr} text_en={text_en} className="text-justify max-w-[65ch] mx-auto"/>
     </>
   )
 }

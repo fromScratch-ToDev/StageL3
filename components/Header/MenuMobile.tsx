@@ -15,7 +15,7 @@ function MenuMobile(props : {handleClick : () => void}) {
     if(menu_galeries){
         return(
             <div className="fixed inset-0 z-10 bg-primary ">
-                <div className="flex justify-end pt-2 pr-2" onClick={()=>set_menu_galeries(!menu_galeries)} >
+                <div className="flex justify-end pt-2 pr-2 cursor-pointer" onClick={()=>set_menu_galeries(!menu_galeries)} >
                     <Close></Close>
                 </div>
                 <ul className="list-none pl-5 space-y-3 font-bold">
@@ -29,12 +29,12 @@ function MenuMobile(props : {handleClick : () => void}) {
 
     return (
         <div className="fixed inset-0 z-10 bg-primary ">
-            <div className="flex justify-end pt-2 pr-2" onClick={handleClick} >
+            <div className="flex justify-end pt-2 pr-2 cursor-pointer" onClick={handleClick} >
                 <Close></Close>
             </div>
             <nav className="list-none pl-5 text-2xl space-y-3 font-bold">
                 <li><Link onClick={handleClick} href="/">{lang === "FR" ? "Accueil" : "Home"}</Link></li>
-                <li onClick={()=>set_menu_galeries(!menu_galeries)}> {lang === "FR" ? "Galeries" : "Galleries"} </li>   
+                <li className="cursor-pointer w-max hover:underline" onClick={()=>set_menu_galeries(!menu_galeries)}> {lang === "FR" ? "Galeries" : "Galleries"} </li>   
                 <li><Link onClick={handleClick} href="/expositions">{lang === "FR" ? "Expositions" : "Exhibitions"}</Link></li>
                 <li><Link onClick={handleClick} href="/biographie">{lang === "FR" ? "Biographie" : "Biography"}</Link></li>
                 <li><Link onClick={handleClick} href="/contact">{lang === "FR" ? "Contact" : "Contact"}</Link></li>

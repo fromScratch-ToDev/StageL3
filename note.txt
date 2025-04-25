@@ -1,2 +1,13 @@
-contact - mobile first
-expositions - mobile first
+logique d'envoie du formulaire --> nom de domaine à configurer sur Resend + tester
+
+expositions - mobile first  
+
+ajouter les peintures de la galeries peintures à la bdd
+
+hébergement
+
+
+bonus : 
+- finir expositions
+- ajouter livres 
+- route /admin avec authentification

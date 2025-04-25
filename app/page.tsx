@@ -4,19 +4,50 @@ import Button from "@/components/Button/Button";
 import Carousel from "@/components/Carousel/Carousel";
 import H2 from "@/components/Text/H2";
 import P from "@/components/Text/P";
+import { GaleriesContext, LangContext, TableauxContext } from "@/context/Context";
 import { EmblaOptionsType } from 'embla-carousel';
 import Image from "next/image";
 import Link from "next/link";
+import { useContext, useEffect, useState } from "react";
+
+type Slide = {
+  nom_fr? : string,
+  nom_en? : string,
+  path : string,
+  redirect? : string,
+}
 
 export default function Accueil() {
 
   const OPTIONS: EmblaOptionsType = { dragFree: true }
+  const lang = useContext(LangContext);
+  const galeries = useContext(GaleriesContext);
+  const tableaux = useContext(TableauxContext);
+  const [slides, set_slides] = useState<Slide[]>([]);     
+
+  useEffect(() => {
+      const new_slides : Slide[] = galeries.filter(galerie => tableaux.find((tableau) => tableau.laGalerieId === galerie.nom_fr) !== undefined)
+        .map((galerie)=> {
+          const nom_fr = galerie.nom_fr;
+          const nom_en = galerie.nom_en;
+          const tableau = tableaux.find(tableau => tableau.laGalerieId === nom_fr)
+          const slide : Slide = {
+            nom_fr,
+            nom_en,
+            path : tableau ? tableau.imagePath : "",
+            redirect : `/galerie?nom=${nom_fr}`
+          }
+        return slide
+      })
+      set_slides(new_slides); 
+    
+    }, [lang, galeries, tableaux]);
 
   return (
     <>
       <H2 text_fr="Découvrez les galeries" text_en="Discover the galleries"></H2>
-      <Carousel options={OPTIONS}></Carousel>
-      <section className="flex flex-row">
+      <Carousel slides={slides} options={OPTIONS} className=" md:w-[25vw] 2xl:w-[20vw] aspect-2/3 min-h-[40vh] md:min-h-auto"></Carousel>
+      <section className="flex flex-col md:flex-row w-full">
         <div className="flex-1">
           <H2 text_fr="Expositions" text_en="Exhibitions"></H2>
           <P className="text-justify" text_fr={`Cette page ouvre sur l’exposition rétrospective que j'ai pu faire grâce à Bertrand de Viviès, alors conservateur des musées et du patrimoine de Gaillac ; cette rétrospective s’est tenue dans le musée des Beaux-arts situé dans le château de Foucaud. 
@@ -27,11 +58,11 @@ export default function Accueil() {
               The page concludes with a selection of press articles.`
             }></P>
           <Link href="/expositions">
-            <Button text_fr="Découvrir" text_en="Discover" className="mt-12" ></Button>
+            <Button text_fr="Découvrir" text_en="Discover" className="mt-6 md:mt-12" ></Button>
           </Link>
         </div>
-        <div className="flex-1 relative items-center justify-center mt-16 mx-16">
-          <Image className="border-1 border-black object-cover" src={"/images/exposition_gaillac.jpg"} fill alt="François Malespine à l'exposition de Gaillac"></Image>
+        <div className="flex-1 relative items-center justify-center mt-16 mx-16 hidden md:block">
+          <Image className="border-1 border-black object-cover object-right" src={"/images/exposition_gaillac.jpg"} fill alt="François Malespine à l'exposition de Gaillac"></Image>
         </div>
       </section>
     </>

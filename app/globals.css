@@ -10,7 +10,7 @@
 body {
   @apply text-secondary; 
 }
-li:hover{
+a:hover{
   text-decoration-line: underline;
 }
 

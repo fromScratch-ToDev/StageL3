@@ -40,7 +40,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${playfair.className} ${merriweather.variable} ${poppins.variable} antialiased bg-primary flex flex-col gap-5 max-w-screen min-h-svh`}
+        className={`${playfair.className} ${merriweather.variable} ${poppins.variable} antialiased bg-primary flex flex-col items-center gap-5 w-screen min-h-svh overflow-x-clip`}
       >
         <LangProvider>
           <GaleriesProvider>

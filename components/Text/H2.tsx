@@ -11,7 +11,7 @@ export default function H2(props : {text_fr : string |null, text_en : string| nu
   const lang = useContext(LangContext);
   
   return (
-    <h2 className={` ${!no_padding && "py-6 md:py-12" } font-merriweather text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl ${className}`}>
+    <h2 className={` ${!no_padding && "py-6 md:py-8 xl:py-12" } font-merriweather text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl ${className}`}>
       {lang === "FR" ? text_fr : text_en}
     </h2>
   );

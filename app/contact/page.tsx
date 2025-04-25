@@ -1,6 +1,6 @@
 "use client"
 
-import ContactForm from "@/components/ContactForm/ContactForm"
+import ContactForm from "@/components/Mail/ContactForm"
 function Contact() {
   return (
     <ContactForm></ContactForm>

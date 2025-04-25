@@ -15,13 +15,13 @@ function NavigationGalerie(props : {currentGalerie : Galerie | undefined, classN
 
 
     return (
-        <div className={`flex justify-between my-5 ${className}`}>
-            <Link href={`/galerie?nom=${previousGalerie?.nom_fr}`} className='flex items-center gap-1.5 cursor-pointer'>
+        <div className={`flex justify-between my-5 gap-x-10 ${className}`}>
+            <Link href={`/galerie?nom=${previousGalerie?.nom_fr}`} className='flex items-center gap-0.5 md:gap-1.5 cursor-pointer'>
                 <Image src="/svg/arrowLeft.svg" width={20} height={20} alt='arrow left'></Image>
                 <P text_fr={previousGalerie && previousGalerie.nom_fr} text_en={previousGalerie && previousGalerie.nom_en} size='sm'></P>
             </Link>
-            <Link href={`/galerie?nom=${nextGalerie?.nom_fr}`} className='flex items-center gap-1.5 cursor-pointer'>
-                <P text_fr={nextGalerie && nextGalerie.nom_fr} text_en={nextGalerie && nextGalerie.nom_en} size='sm'></P>
+            <Link href={`/galerie?nom=${nextGalerie?.nom_fr}`} className='flex items-center gap-0.5 md:gap-1.5 cursor-pointer'>
+                <P text_fr={nextGalerie && nextGalerie.nom_fr} text_en={nextGalerie && nextGalerie.nom_en} size='sm' className='text-right'></P>
                 <Image src="/svg/arrowRight.svg" width={20} height={20} alt='arrow right'></Image>
             </Link>
         </div>
