@@ -18,7 +18,7 @@ function HeaderHome(props : PropsWithChildren) {
                 <Image className="object-cover md:rounded-2xl" fill src="/images/page_accueil.jpg" alt="image d'accueil du site étant une peinture de l'artiste"></Image>
             </div>
             <div className="flex justify-center items-center ">
-                <H1 text_fr="Espaces Intérieurs" text_en="Interior Spaces"></H1>
+                <H1 text_fr="Espaces Intérieurs" text_en="Inner Spaces"></H1>
             </div>
         </section>
     )

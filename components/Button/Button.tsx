@@ -11,7 +11,7 @@ function Button(props : {text_fr : string, text_en : string, className? : string
 
 
   return (
-      <button type={type} onClick={handleClick} className={`flex gap-1.5 px-6 py-3 bg-secondary text-white border-1 border-white rounded-3xl cursor-pointer ${className}`}>
+      <button type={type} onClick={handleClick} className={`flex gap-1.5 px-6 py-3 bg-secondary text-white border-1 border-white rounded-3xl cursor-pointer z-5 ${className}`}>
         { SVG }<P text_fr={text_fr} text_en={text_en}></P>  
       </button>
   )

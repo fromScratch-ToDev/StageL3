@@ -191,7 +191,7 @@ for (let index = 1; index < 4; index++) {
     description_fr: descriptionFR[index-1],
     description_en: descriptionEN[index-1],
     laGalerie: { connect: { nom_fr: "Dessins 2012", },
-      },
+    },
   })
 }
 

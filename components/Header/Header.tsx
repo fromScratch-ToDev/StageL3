@@ -30,7 +30,7 @@ export default function Header() {
         <div className="flex flex-row justify-between w-full py-2 md:py-3 px-3 sm:px-6 md:px-12 bg-primary-darken items-center relative">
             <div className="w-1/3 min-w-38">
                 <h2 className=" lg:text-lg xl:text-xl 2xl:text-2xl ">François Malespine</h2>
-                <P text_fr="Espaces Intérieurs" text_en="Interior Spaces" className="text-tertiary font-poppins" size="sm"></P>
+                <P text_fr="Espaces Intérieurs" text_en="Inner Spaces" className="text-tertiary font-poppins" size="sm"></P>
             </div>
             <div  className="w-2/3 max-w-200">
                 <div>
