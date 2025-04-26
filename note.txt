@@ -9,3 +9,5 @@ bonus :
 - finir expositions
 - ajouter livres 
 - route /admin avec authentification
+- page not found
+- loader
