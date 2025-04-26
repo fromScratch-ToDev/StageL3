@@ -1,4 +1,4 @@
-function Close(props : {className : string, handleClick : ()=>void}) {
+function Close(props : {className? : string, handleClick? : ()=>void}) {
   const className = props.className;
   const handleClick = props.handleClick
   return (
