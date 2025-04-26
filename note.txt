@@ -1,5 +1,3 @@
-ajouter les peintures de la galeries peintures à la bdd
-
 logique d'envoie du formulaire --> nom de domaine à configurer sur Resend + tester
 
 hébergement
