@@ -44,7 +44,7 @@ export default function Menu(props : {isNotAccueil ?: boolean}){
                 <nav className="flex justify-between w-full gap-3 text-lg lg:text-xl xl:text-2xl h-full">
                     <Link href="/">{lang === "FR" ? "Accueil" : "Home"}</Link>
                     
-                    <div className="z-1  cursor-pointer " onMouseEnter={() => set_afficher_sous_menu(true)} onMouseLeave={() => set_afficher_sous_menu(false)}>
+                    <div className="z-1  cursor-default " onMouseEnter={() => set_afficher_sous_menu(true)} onMouseLeave={() => set_afficher_sous_menu(false)}>
                     {lang === "FR" ? "Galeries" : "Galleries"}
                         {afficher_sous_menu && 
                         <ul className={`flex flex-col text-base ${isNotAccueil ? "bg-primary-darken" : "bg-primary"} z-10 absolute -translate-x-4 pb-2 shadow-[4px_4px_4px_-2px_rgba(0,0,0,0.1)]`}>

@@ -2,6 +2,7 @@ import MainSection from "@/components/Boxes/MainSection";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import { GaleriesProvider, LangProvider, TableauxProvider } from "@/context/Context";
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Merriweather, Playfair_Display, Poppins } from 'next/font/google';
 import "./embla.css";
@@ -48,6 +49,7 @@ export default async function RootLayout({
               <Header></Header>
               <MainSection>
                 {children}
+                <Analytics />
               </MainSection>
               <Footer></Footer>
             </TableauxProvider>

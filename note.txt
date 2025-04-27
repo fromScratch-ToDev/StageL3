@@ -1,6 +1,5 @@
-logique d'envoie du formulaire --> nom de domaine à configurer sur Resend + tester
+logique d'envoie du formulaire --> utiliser emailJs
 
-hébergement
 
 
 bonus : 
