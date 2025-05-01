@@ -30,7 +30,31 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "François Malespine - Peintures, dessins et encres de chine",
   description: "Rétrospective des oeuvres du peintre François Malespine - Peintures, dessins, encres de chine, monotypes - et de leur genèse.",
-  generator: 'François Malespine', 
+  openGraph: {
+    url: 'https://peinturesetdessinsdefrancoismalespine.vercel.app/',
+    type: 'website',
+    title: 'François Malespine - Peintures, dessins et encres de chine',
+    description: 'Rétrospective des oeuvres du peintre François Malespine - Peintures, dessins, encres de chine, monotypes - et de leur genèse.',
+    images: [
+      {
+        url: 'https://opengraph.b-cdn.net/production/images/fdafaa4c-90dd-482b-b10d-0fbea41709a2.jpg?token=7sidvoXAva0dmrx7voDjE93WkG0rKA4yRx6767-znN4&height=538&width=1200&expires=33282129859',
+        width: 1200,
+        height: 538,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'François Malespine - Peintures, dessins et encres de chine',
+    description: 'Rétrospective des oeuvres du peintre François Malespine - Peintures, dessins, encres de chine, monotypes - et de leur genèse.',
+    images: [
+      {
+        url: 'https://opengraph.b-cdn.net/production/images/fdafaa4c-90dd-482b-b10d-0fbea41709a2.jpg?token=7sidvoXAva0dmrx7voDjE93WkG0rKA4yRx6767-znN4&height=538&width=1200&expires=33282129859',
+        width: 1200,
+        height: 538,
+      },
+    ],
+  },
   authors: [{ name: 'Thibault Malespine' }],
   other: {
     'google-site-verification': '0cRBhZoWAcu3YzGjJNqJyAg0FBu2YeQvY_NHdcgqFHw',
