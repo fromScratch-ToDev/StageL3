@@ -3,6 +3,7 @@ import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import { GaleriesProvider, LangProvider, TableauxProvider } from "@/context/Context";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Merriweather, Playfair_Display, Poppins } from 'next/font/google';
 import "./embla.css";
@@ -55,6 +56,9 @@ export const metadata: Metadata = {
       },
     ],
   },
+  icons: {
+    icon: '/icon.jpg', 
+  },
   authors: [{ name: 'Thibault Malespine' }],
   other: {
     'google-site-verification': '0cRBhZoWAcu3YzGjJNqJyAg0FBu2YeQvY_NHdcgqFHw',
@@ -79,6 +83,7 @@ export default async function RootLayout({
               <MainSection>
                 {children}
                 <Analytics />
+                <SpeedInsights/>
               </MainSection>
               <Footer></Footer>
             </TableauxProvider>
