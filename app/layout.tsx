@@ -32,6 +32,7 @@ export const metadata: Metadata = {
   title: "François Malespine - Peintures, dessins et encres de chine",
   description: "Rétrospective des oeuvres du peintre François Malespine - Peintures, dessins, encres de chine, monotypes - et de leur genèse.",
   openGraph: {
+    siteName: 'Francois Malespine',
     url: 'https://peinturesetdessinsdefrancoismalespine.vercel.app/',
     type: 'website',
     title: 'François Malespine - Peintures, dessins et encres de chine',
