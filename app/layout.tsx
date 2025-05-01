@@ -30,6 +30,8 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "François Malespine - Peintures, dessins et encres de chine",
   description: "Rétrospective des oeuvres du peintre François Malespine - Peintures, dessins, encres de chine, monotypes - et de leur genèse.",
+  generator: 'François Malespine', 
+  authors: [{ name: 'Thibault Malespine' }],
   other: {
     'google-site-verification': '0cRBhZoWAcu3YzGjJNqJyAg0FBu2YeQvY_NHdcgqFHw',
   },
