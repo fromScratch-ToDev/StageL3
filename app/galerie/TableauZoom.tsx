@@ -24,9 +24,11 @@ function TableauZoom(props : {handleClick : ()=>void, id : number}) {
         {loading && <Loader/>} 
         <Image className='object-contain' src={tableau.imagePath} fill alt={`zoom de l'image du tableau n°${id}`} onLoadingComplete={() => setLoading(false)}></Image>
       </div>
+      {!loading && 
       <div className='w-screen h-10 flex items-center justify-center'>
         <P text_fr={tableau.description_fr} text_en={tableau.description_en} ></P>
       </div>
+      }
     </div>
   )
 }
