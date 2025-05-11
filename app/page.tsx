@@ -2,6 +2,7 @@
 
 import Button from "@/components/Button/Button";
 import Carousel from "@/components/Carousel/Carousel";
+import Loader from "@/components/Loader/Loader";
 import H2 from "@/components/Text/H2";
 import P from "@/components/Text/P";
 import { GaleriesContext, LangContext, TableauxContext } from "@/context/Context";
@@ -42,6 +43,10 @@ export default function Accueil() {
       set_slides(new_slides); 
     
     }, [lang, galeries, tableaux]);
+
+  if (galeries.length === 0 || tableaux.length === 0) {
+    return <Loader></Loader>
+  }
 
   return (
     <>

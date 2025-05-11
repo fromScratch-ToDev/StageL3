@@ -1,8 +1,8 @@
-import "./style.css";
+import "./loader.css";
 
 export default function Loader() {
   return (
-    <div className="h-screen w-screen flex justify-center items-center">
+    <div className="h-screen w-full flex justify-center items-center">
       <span className="loader border-secondary"></span>
     </div>
   );
