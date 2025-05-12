@@ -75,7 +75,7 @@ function Expositions() {
   
   return (
     <>
-      <H2 text_fr="Expositions" text_en="Exhibitions" className=" text-center"></H2>
+      <H2 text_fr="Exposition - Gaillac" text_en="Gaillac Exhibition" className=" text-center"></H2>
       <H3 text_fr={`Rétrospective - Musée de Gaillac`} text_en={"Retrospective – Gaillac Museum"}></H3>
       <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-5 ">
         <div className="relative aspect-[1/1.6]">

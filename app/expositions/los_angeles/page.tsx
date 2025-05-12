@@ -6,7 +6,7 @@ import Image from "next/image";
 function LosAngeles() {
   return (
     <>
-        <H2 text_fr={"Exposition Los Angeles"} text_en={"Los Angeles Exhibition"} className="text-center"></H2>
+        <H2 text_fr={"Exposition - Los Angeles"} text_en={"Los Angeles Exhibition"} className="text-center"></H2>
         <H3 text_fr={"Liste expositions"} text_en={"List of exhibitions"}></H3>
         <div className="relative aspect-[1/1.6] w-full sm:w-[75%] md:w-[50%]">
             <Image className="shadow-black shadow-md object-contain bg-black/20" src={'/images/exposition_los_angeles/image1.jpeg'} fill alt="affiche de l'exposition"></Image>
