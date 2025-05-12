@@ -1,10 +1,4 @@
-logique d'envoie du formulaire --> utiliser emailJs
-
-
-
 bonus : 
-- finir expositions
 - ajouter livres 
 - route /admin avec authentification
 - page not found
-- loader
