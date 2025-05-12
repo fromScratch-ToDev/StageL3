@@ -77,55 +77,55 @@ function Expositions() {
     <>
       <H2 text_fr="Expositions" text_en="Exhibitions" className=" text-center"></H2>
       <H3 text_fr={`Rétrospective - Musée de Gaillac`} text_en={"Retrospective – Gaillac Museum"}></H3>
-      <div className="grid grid-cols-1 md:grid-cols-2 h-svh md:h-[50svh] gap-5 ">
-        <div className="relative">
+      <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-5 ">
+        <div className="relative aspect-[1/1.6]">
           <Image className="shadow-black shadow-md object-contain bg-black/20" src={'/images/exposition_gaillac/exposition-01.jpg'} fill alt="affiche de l'exposition"></Image>
         </div>
-        <div className="relative">
+        <div className="relative aspect-[1.1/1] md:aspect-[1/1.6]">
           <Image className="shadow-black shadow-md object-contain bg-black/20" src={'/images/exposition_gaillac/exposition-02.jpg'} fill alt="entrée du musée"></Image>
         </div>
       </div>
       <H3 text_fr="Peinture à l'oeuf et dorure à la feuille" text_en="Egg tempera painting and gold leaf gilding" className="mt-5"></H3>
       <P text_fr="En 1969 j'apprends avec mon père Claude Malespine la peinture à l'oeuf, la dorure à la feuille, le travail de l'or"
       text_en="In 1969, I learned egg tempera painting, gold leaf gilding, and gold craftsmanship from my father, Claude Malespine."></P>
-      <div className="grid grid-cols-1 md:grid-cols-2 h-svh md:h-[50svh] gap-5  ">
-        <div className="relative">
+      <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-5  ">
+        <div className="relative aspect-[1.6/1]">
           <Image className="shadow-black shadow-md object-contain bg-black/20" src={'/images/exposition_gaillac/exposition-03.jpg'} fill alt="peinture à l'oeuf et dorure"></Image>
         </div>
-        <div className="relative">
+        <div className="relative aspect-[1.6/1]">
           <Image className="shadow-black shadow-md object-contain bg-black/20" src={'/images/exposition_gaillac/exposition-04.jpg'} fill alt="vue de la peinture dans une vitrine avec des dessins aux stylo à bille"></Image>
         </div>
       </div>
       <H3 text_fr='Encre de chine "Marseille / Luminy"' text_en='India Ink "Marseille / Luminy"' className="mt-5"></H3>
       <Carousel slides={slides1} options={OPTIONS} className="h-[30vh] md:h-[40vh] w-auto object-contain shadow-black shadow-md"></Carousel>
       <H3 text_fr="Dessin à l'encre de chine et au pinceau" text_en='Ink drawing made with a brush.' className="mt-5"></H3>
-      <div className="relative h-[50svh]  w-[75%]">
+      <div className="relative aspect-[1.6/1] w-full">
           <Image className="shadow-black shadow-md object-contain bg-black/20" src={'/images/exposition_gaillac/exposition-08.jpg'} fill alt="affiche de l'exposition"></Image>
       </div>
       <H3 text_fr='"Lying"' text_en='"Lying"' className="mt-5"></H3>
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 h-[150svh] md:h-svh xl:h-[50svh] gap-5  ">
-        <div className="relative">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5  ">
+        <div className="relative aspect-[1.1/1]">
           <Image className="shadow-black shadow-md object-contain bg-black/20" src={'/images/exposition_gaillac/exposition-09.jpg'} fill alt="peinture suite à des lying"></Image>
         </div>
-        <div className="relative">
+        <div className="relative aspect-[1.1/1]">
           <Image className="shadow-black shadow-md object-contain bg-black/20" src={'/images/exposition_gaillac/exposition-10.jpg'} fill alt="peinture suite à des lying"></Image>
         </div>
-        <div className="relative">
+        <div className="relative aspect-[1.1/1]">
           <Image className="shadow-black shadow-md object-contain bg-black/20" src={'/images/exposition_gaillac/exposition-11.jpg'} fill alt="peintures suite à des lying"></Image>
         </div>
       </div>
       <H3 text_fr='Autres' text_en='Others' className="mt-5"></H3>
-      <div className="grid  grid-rows-[30svh_30svh_50svh_50svh] md:grid-rows-[50svh_50svh_50svh] grid-cols-1 md:grid-cols-2  gap-5  ">
-        <div className="relative row-span-1 md:col-span-2">
+      <div className="grid grid-cols-1 md:grid-cols-2  gap-5  ">
+        <div className="relative md:col-span-2 aspect-[3/1.2]">
           <Image className="shadow-black shadow-md object-contain bg-black/20" src={'/images/exposition_gaillac/exposition-12.jpg'} fill alt="vue panoramique d'une pièce de la galerie"></Image>
         </div>
-        <div className="relative row-span-1 md:col-span-2">
+        <div className="relative md:col-span-2 aspect-[3/1.1]">
           <Image className="shadow-black shadow-md object-contain bg-black/20" src={'/images/exposition_gaillac/exposition-13.jpg'} fill alt="vue panoramique d'une autre pièce de la galerie"></Image>
         </div>
-        <div className="relative row-span-1">
+        <div className="relative aspect-[1.1/1]">
           <Image className="shadow-black shadow-md object-contain bg-black/20" src={'/images/exposition_gaillac/exposition-14.jpg'} fill alt="vue ouverte d'une pièce de la galerie"></Image>
         </div>
-        <div className="relative row-span-1">
+        <div className="relative aspect-[1.1/1]">
           <Image className="shadow-black shadow-md object-contain bg-black/20" src={'/images/exposition_gaillac/exposition-15.jpg'} fill alt="vue ouverte d'une pièce de la galerie"></Image>
         </div>
       </div>  
