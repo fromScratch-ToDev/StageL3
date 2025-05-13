@@ -62,7 +62,7 @@ export default function Accueil() {
               It continues with an overview of my exhibitions in France and the United States. As for the latter, I owe it to Scott Deroy that I had the joy of exhibiting in Los Angeles, San Francisco, and San Diego (California).
               The page concludes with a selection of press articles.`
             }></P>
-          <Link href="/expositions" className="block w-max rounded-3xl ">
+          <Link href="/expositions/gaillac" className="block w-max rounded-3xl ">
             <Button text_fr="Découvrir" text_en="Discover" className="mt-6 md:mt-12" ></Button>
           </Link>
         </div>
