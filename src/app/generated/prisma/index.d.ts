@@ -226,8 +226,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.6.0
-   * Query Engine version: f676762280b54cd07c770017ed3711ddde35f37a
+   * Prisma Client JS version: 6.8.2
+   * Query Engine version: 2060c79ba17c6bb9f5823312b6f6b7f4a845738e
    */
   export type PrismaVersion = {
     client: string
@@ -1004,10 +1004,12 @@ export namespace Prisma {
 
   export type TableauAvgAggregateOutputType = {
     id: number | null
+    order: number | null
   }
 
   export type TableauSumAggregateOutputType = {
     id: number | null
+    order: number | null
   }
 
   export type TableauMinAggregateOutputType = {
@@ -1015,6 +1017,7 @@ export namespace Prisma {
     imagePath: string | null
     description_fr: string | null
     description_en: string | null
+    order: number | null
     laGalerieId: string | null
   }
 
@@ -1023,6 +1026,7 @@ export namespace Prisma {
     imagePath: string | null
     description_fr: string | null
     description_en: string | null
+    order: number | null
     laGalerieId: string | null
   }
 
@@ -1031,6 +1035,7 @@ export namespace Prisma {
     imagePath: number
     description_fr: number
     description_en: number
+    order: number
     laGalerieId: number
     _all: number
   }
@@ -1038,10 +1043,12 @@ export namespace Prisma {
 
   export type TableauAvgAggregateInputType = {
     id?: true
+    order?: true
   }
 
   export type TableauSumAggregateInputType = {
     id?: true
+    order?: true
   }
 
   export type TableauMinAggregateInputType = {
@@ -1049,6 +1056,7 @@ export namespace Prisma {
     imagePath?: true
     description_fr?: true
     description_en?: true
+    order?: true
     laGalerieId?: true
   }
 
@@ -1057,6 +1065,7 @@ export namespace Prisma {
     imagePath?: true
     description_fr?: true
     description_en?: true
+    order?: true
     laGalerieId?: true
   }
 
@@ -1065,6 +1074,7 @@ export namespace Prisma {
     imagePath?: true
     description_fr?: true
     description_en?: true
+    order?: true
     laGalerieId?: true
     _all?: true
   }
@@ -1160,6 +1170,7 @@ export namespace Prisma {
     imagePath: string
     description_fr: string
     description_en: string
+    order: number
     laGalerieId: string
     _count: TableauCountAggregateOutputType | null
     _avg: TableauAvgAggregateOutputType | null
@@ -1187,6 +1198,7 @@ export namespace Prisma {
     imagePath?: boolean
     description_fr?: boolean
     description_en?: boolean
+    order?: boolean
     laGalerieId?: boolean
     laGalerie?: boolean | GalerieDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tableau"]>
@@ -1196,6 +1208,7 @@ export namespace Prisma {
     imagePath?: boolean
     description_fr?: boolean
     description_en?: boolean
+    order?: boolean
     laGalerieId?: boolean
     laGalerie?: boolean | GalerieDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tableau"]>
@@ -1205,6 +1218,7 @@ export namespace Prisma {
     imagePath?: boolean
     description_fr?: boolean
     description_en?: boolean
+    order?: boolean
     laGalerieId?: boolean
     laGalerie?: boolean | GalerieDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tableau"]>
@@ -1214,10 +1228,11 @@ export namespace Prisma {
     imagePath?: boolean
     description_fr?: boolean
     description_en?: boolean
+    order?: boolean
     laGalerieId?: boolean
   }
 
-  export type TableauOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "imagePath" | "description_fr" | "description_en" | "laGalerieId", ExtArgs["result"]["tableau"]>
+  export type TableauOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "imagePath" | "description_fr" | "description_en" | "order" | "laGalerieId", ExtArgs["result"]["tableau"]>
   export type TableauInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     laGalerie?: boolean | GalerieDefaultArgs<ExtArgs>
   }
@@ -1238,6 +1253,7 @@ export namespace Prisma {
       imagePath: string
       description_fr: string
       description_en: string
+      order: number
       laGalerieId: string
     }, ExtArgs["result"]["tableau"]>
     composites: {}
@@ -1667,6 +1683,7 @@ export namespace Prisma {
     readonly imagePath: FieldRef<"Tableau", 'String'>
     readonly description_fr: FieldRef<"Tableau", 'String'>
     readonly description_en: FieldRef<"Tableau", 'String'>
+    readonly order: FieldRef<"Tableau", 'Int'>
     readonly laGalerieId: FieldRef<"Tableau", 'String'>
   }
     
@@ -2088,8 +2105,18 @@ export namespace Prisma {
 
   export type AggregateGalerie = {
     _count: GalerieCountAggregateOutputType | null
+    _avg: GalerieAvgAggregateOutputType | null
+    _sum: GalerieSumAggregateOutputType | null
     _min: GalerieMinAggregateOutputType | null
     _max: GalerieMaxAggregateOutputType | null
+  }
+
+  export type GalerieAvgAggregateOutputType = {
+    order: number | null
+  }
+
+  export type GalerieSumAggregateOutputType = {
+    order: number | null
   }
 
   export type GalerieMinAggregateOutputType = {
@@ -2097,6 +2124,7 @@ export namespace Prisma {
     nom_en: string | null
     presentation_fr: string | null
     presentation_en: string | null
+    order: number | null
   }
 
   export type GalerieMaxAggregateOutputType = {
@@ -2104,6 +2132,7 @@ export namespace Prisma {
     nom_en: string | null
     presentation_fr: string | null
     presentation_en: string | null
+    order: number | null
   }
 
   export type GalerieCountAggregateOutputType = {
@@ -2111,15 +2140,25 @@ export namespace Prisma {
     nom_en: number
     presentation_fr: number
     presentation_en: number
+    order: number
     _all: number
   }
 
+
+  export type GalerieAvgAggregateInputType = {
+    order?: true
+  }
+
+  export type GalerieSumAggregateInputType = {
+    order?: true
+  }
 
   export type GalerieMinAggregateInputType = {
     nom_fr?: true
     nom_en?: true
     presentation_fr?: true
     presentation_en?: true
+    order?: true
   }
 
   export type GalerieMaxAggregateInputType = {
@@ -2127,6 +2166,7 @@ export namespace Prisma {
     nom_en?: true
     presentation_fr?: true
     presentation_en?: true
+    order?: true
   }
 
   export type GalerieCountAggregateInputType = {
@@ -2134,6 +2174,7 @@ export namespace Prisma {
     nom_en?: true
     presentation_fr?: true
     presentation_en?: true
+    order?: true
     _all?: true
   }
 
@@ -2175,6 +2216,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: GalerieAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: GalerieSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: GalerieMinAggregateInputType
@@ -2205,6 +2258,8 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: GalerieCountAggregateInputType | true
+    _avg?: GalerieAvgAggregateInputType
+    _sum?: GalerieSumAggregateInputType
     _min?: GalerieMinAggregateInputType
     _max?: GalerieMaxAggregateInputType
   }
@@ -2214,7 +2269,10 @@ export namespace Prisma {
     nom_en: string
     presentation_fr: string
     presentation_en: string
+    order: number
     _count: GalerieCountAggregateOutputType | null
+    _avg: GalerieAvgAggregateOutputType | null
+    _sum: GalerieSumAggregateOutputType | null
     _min: GalerieMinAggregateOutputType | null
     _max: GalerieMaxAggregateOutputType | null
   }
@@ -2238,6 +2296,7 @@ export namespace Prisma {
     nom_en?: boolean
     presentation_fr?: boolean
     presentation_en?: boolean
+    order?: boolean
     tableaux?: boolean | Galerie$tableauxArgs<ExtArgs>
     _count?: boolean | GalerieCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["galerie"]>
@@ -2247,6 +2306,7 @@ export namespace Prisma {
     nom_en?: boolean
     presentation_fr?: boolean
     presentation_en?: boolean
+    order?: boolean
   }, ExtArgs["result"]["galerie"]>
 
   export type GalerieSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2254,6 +2314,7 @@ export namespace Prisma {
     nom_en?: boolean
     presentation_fr?: boolean
     presentation_en?: boolean
+    order?: boolean
   }, ExtArgs["result"]["galerie"]>
 
   export type GalerieSelectScalar = {
@@ -2261,9 +2322,10 @@ export namespace Prisma {
     nom_en?: boolean
     presentation_fr?: boolean
     presentation_en?: boolean
+    order?: boolean
   }
 
-  export type GalerieOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"nom_fr" | "nom_en" | "presentation_fr" | "presentation_en", ExtArgs["result"]["galerie"]>
+  export type GalerieOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"nom_fr" | "nom_en" | "presentation_fr" | "presentation_en" | "order", ExtArgs["result"]["galerie"]>
   export type GalerieInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     tableaux?: boolean | Galerie$tableauxArgs<ExtArgs>
     _count?: boolean | GalerieCountOutputTypeDefaultArgs<ExtArgs>
@@ -2281,6 +2343,7 @@ export namespace Prisma {
       nom_en: string
       presentation_fr: string
       presentation_en: string
+      order: number
     }, ExtArgs["result"]["galerie"]>
     composites: {}
   }
@@ -2709,6 +2772,7 @@ export namespace Prisma {
     readonly nom_en: FieldRef<"Galerie", 'String'>
     readonly presentation_fr: FieldRef<"Galerie", 'String'>
     readonly presentation_en: FieldRef<"Galerie", 'String'>
+    readonly order: FieldRef<"Galerie", 'Int'>
   }
     
 
@@ -3158,6 +3222,7 @@ export namespace Prisma {
     imagePath: 'imagePath',
     description_fr: 'description_fr',
     description_en: 'description_en',
+    order: 'order',
     laGalerieId: 'laGalerieId'
   };
 
@@ -3168,7 +3233,8 @@ export namespace Prisma {
     nom_fr: 'nom_fr',
     nom_en: 'nom_en',
     presentation_fr: 'presentation_fr',
-    presentation_en: 'presentation_en'
+    presentation_en: 'presentation_en',
+    order: 'order'
   };
 
   export type GalerieScalarFieldEnum = (typeof GalerieScalarFieldEnum)[keyof typeof GalerieScalarFieldEnum]
@@ -3248,6 +3314,7 @@ export namespace Prisma {
     imagePath?: StringFilter<"Tableau"> | string
     description_fr?: StringFilter<"Tableau"> | string
     description_en?: StringFilter<"Tableau"> | string
+    order?: IntFilter<"Tableau"> | number
     laGalerieId?: StringFilter<"Tableau"> | string
     laGalerie?: XOR<GalerieScalarRelationFilter, GalerieWhereInput>
   }
@@ -3257,6 +3324,7 @@ export namespace Prisma {
     imagePath?: SortOrder
     description_fr?: SortOrder
     description_en?: SortOrder
+    order?: SortOrder
     laGalerieId?: SortOrder
     laGalerie?: GalerieOrderByWithRelationInput
   }
@@ -3269,6 +3337,7 @@ export namespace Prisma {
     imagePath?: StringFilter<"Tableau"> | string
     description_fr?: StringFilter<"Tableau"> | string
     description_en?: StringFilter<"Tableau"> | string
+    order?: IntFilter<"Tableau"> | number
     laGalerieId?: StringFilter<"Tableau"> | string
     laGalerie?: XOR<GalerieScalarRelationFilter, GalerieWhereInput>
   }, "id">
@@ -3278,6 +3347,7 @@ export namespace Prisma {
     imagePath?: SortOrder
     description_fr?: SortOrder
     description_en?: SortOrder
+    order?: SortOrder
     laGalerieId?: SortOrder
     _count?: TableauCountOrderByAggregateInput
     _avg?: TableauAvgOrderByAggregateInput
@@ -3294,6 +3364,7 @@ export namespace Prisma {
     imagePath?: StringWithAggregatesFilter<"Tableau"> | string
     description_fr?: StringWithAggregatesFilter<"Tableau"> | string
     description_en?: StringWithAggregatesFilter<"Tableau"> | string
+    order?: IntWithAggregatesFilter<"Tableau"> | number
     laGalerieId?: StringWithAggregatesFilter<"Tableau"> | string
   }
 
@@ -3305,6 +3376,7 @@ export namespace Prisma {
     nom_en?: StringFilter<"Galerie"> | string
     presentation_fr?: StringFilter<"Galerie"> | string
     presentation_en?: StringFilter<"Galerie"> | string
+    order?: IntFilter<"Galerie"> | number
     tableaux?: TableauListRelationFilter
   }
 
@@ -3313,6 +3385,7 @@ export namespace Prisma {
     nom_en?: SortOrder
     presentation_fr?: SortOrder
     presentation_en?: SortOrder
+    order?: SortOrder
     tableaux?: TableauOrderByRelationAggregateInput
   }
 
@@ -3324,6 +3397,7 @@ export namespace Prisma {
     nom_en?: StringFilter<"Galerie"> | string
     presentation_fr?: StringFilter<"Galerie"> | string
     presentation_en?: StringFilter<"Galerie"> | string
+    order?: IntFilter<"Galerie"> | number
     tableaux?: TableauListRelationFilter
   }, "nom_fr">
 
@@ -3332,9 +3406,12 @@ export namespace Prisma {
     nom_en?: SortOrder
     presentation_fr?: SortOrder
     presentation_en?: SortOrder
+    order?: SortOrder
     _count?: GalerieCountOrderByAggregateInput
+    _avg?: GalerieAvgOrderByAggregateInput
     _max?: GalerieMaxOrderByAggregateInput
     _min?: GalerieMinOrderByAggregateInput
+    _sum?: GalerieSumOrderByAggregateInput
   }
 
   export type GalerieScalarWhereWithAggregatesInput = {
@@ -3345,12 +3422,14 @@ export namespace Prisma {
     nom_en?: StringWithAggregatesFilter<"Galerie"> | string
     presentation_fr?: StringWithAggregatesFilter<"Galerie"> | string
     presentation_en?: StringWithAggregatesFilter<"Galerie"> | string
+    order?: IntWithAggregatesFilter<"Galerie"> | number
   }
 
   export type TableauCreateInput = {
     imagePath: string
     description_fr: string
     description_en: string
+    order?: number
     laGalerie: GalerieCreateNestedOneWithoutTableauxInput
   }
 
@@ -3359,6 +3438,7 @@ export namespace Prisma {
     imagePath: string
     description_fr: string
     description_en: string
+    order?: number
     laGalerieId: string
   }
 
@@ -3366,6 +3446,7 @@ export namespace Prisma {
     imagePath?: StringFieldUpdateOperationsInput | string
     description_fr?: StringFieldUpdateOperationsInput | string
     description_en?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
     laGalerie?: GalerieUpdateOneRequiredWithoutTableauxNestedInput
   }
 
@@ -3374,6 +3455,7 @@ export namespace Prisma {
     imagePath?: StringFieldUpdateOperationsInput | string
     description_fr?: StringFieldUpdateOperationsInput | string
     description_en?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
     laGalerieId?: StringFieldUpdateOperationsInput | string
   }
 
@@ -3382,6 +3464,7 @@ export namespace Prisma {
     imagePath: string
     description_fr: string
     description_en: string
+    order?: number
     laGalerieId: string
   }
 
@@ -3389,6 +3472,7 @@ export namespace Prisma {
     imagePath?: StringFieldUpdateOperationsInput | string
     description_fr?: StringFieldUpdateOperationsInput | string
     description_en?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
   }
 
   export type TableauUncheckedUpdateManyInput = {
@@ -3396,6 +3480,7 @@ export namespace Prisma {
     imagePath?: StringFieldUpdateOperationsInput | string
     description_fr?: StringFieldUpdateOperationsInput | string
     description_en?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
     laGalerieId?: StringFieldUpdateOperationsInput | string
   }
 
@@ -3404,6 +3489,7 @@ export namespace Prisma {
     nom_en: string
     presentation_fr: string
     presentation_en: string
+    order?: number
     tableaux?: TableauCreateNestedManyWithoutLaGalerieInput
   }
 
@@ -3412,6 +3498,7 @@ export namespace Prisma {
     nom_en: string
     presentation_fr: string
     presentation_en: string
+    order?: number
     tableaux?: TableauUncheckedCreateNestedManyWithoutLaGalerieInput
   }
 
@@ -3420,6 +3507,7 @@ export namespace Prisma {
     nom_en?: StringFieldUpdateOperationsInput | string
     presentation_fr?: StringFieldUpdateOperationsInput | string
     presentation_en?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
     tableaux?: TableauUpdateManyWithoutLaGalerieNestedInput
   }
 
@@ -3428,6 +3516,7 @@ export namespace Prisma {
     nom_en?: StringFieldUpdateOperationsInput | string
     presentation_fr?: StringFieldUpdateOperationsInput | string
     presentation_en?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
     tableaux?: TableauUncheckedUpdateManyWithoutLaGalerieNestedInput
   }
 
@@ -3436,6 +3525,7 @@ export namespace Prisma {
     nom_en: string
     presentation_fr: string
     presentation_en: string
+    order?: number
   }
 
   export type GalerieUpdateManyMutationInput = {
@@ -3443,6 +3533,7 @@ export namespace Prisma {
     nom_en?: StringFieldUpdateOperationsInput | string
     presentation_fr?: StringFieldUpdateOperationsInput | string
     presentation_en?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
   }
 
   export type GalerieUncheckedUpdateManyInput = {
@@ -3450,6 +3541,7 @@ export namespace Prisma {
     nom_en?: StringFieldUpdateOperationsInput | string
     presentation_fr?: StringFieldUpdateOperationsInput | string
     presentation_en?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -3488,11 +3580,13 @@ export namespace Prisma {
     imagePath?: SortOrder
     description_fr?: SortOrder
     description_en?: SortOrder
+    order?: SortOrder
     laGalerieId?: SortOrder
   }
 
   export type TableauAvgOrderByAggregateInput = {
     id?: SortOrder
+    order?: SortOrder
   }
 
   export type TableauMaxOrderByAggregateInput = {
@@ -3500,6 +3594,7 @@ export namespace Prisma {
     imagePath?: SortOrder
     description_fr?: SortOrder
     description_en?: SortOrder
+    order?: SortOrder
     laGalerieId?: SortOrder
   }
 
@@ -3508,11 +3603,13 @@ export namespace Prisma {
     imagePath?: SortOrder
     description_fr?: SortOrder
     description_en?: SortOrder
+    order?: SortOrder
     laGalerieId?: SortOrder
   }
 
   export type TableauSumOrderByAggregateInput = {
     id?: SortOrder
+    order?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -3564,6 +3661,11 @@ export namespace Prisma {
     nom_en?: SortOrder
     presentation_fr?: SortOrder
     presentation_en?: SortOrder
+    order?: SortOrder
+  }
+
+  export type GalerieAvgOrderByAggregateInput = {
+    order?: SortOrder
   }
 
   export type GalerieMaxOrderByAggregateInput = {
@@ -3571,6 +3673,7 @@ export namespace Prisma {
     nom_en?: SortOrder
     presentation_fr?: SortOrder
     presentation_en?: SortOrder
+    order?: SortOrder
   }
 
   export type GalerieMinOrderByAggregateInput = {
@@ -3578,6 +3681,11 @@ export namespace Prisma {
     nom_en?: SortOrder
     presentation_fr?: SortOrder
     presentation_en?: SortOrder
+    order?: SortOrder
+  }
+
+  export type GalerieSumOrderByAggregateInput = {
+    order?: SortOrder
   }
 
   export type GalerieCreateNestedOneWithoutTableauxInput = {
@@ -3590,20 +3698,20 @@ export namespace Prisma {
     set?: string
   }
 
-  export type GalerieUpdateOneRequiredWithoutTableauxNestedInput = {
-    create?: XOR<GalerieCreateWithoutTableauxInput, GalerieUncheckedCreateWithoutTableauxInput>
-    connectOrCreate?: GalerieCreateOrConnectWithoutTableauxInput
-    upsert?: GalerieUpsertWithoutTableauxInput
-    connect?: GalerieWhereUniqueInput
-    update?: XOR<XOR<GalerieUpdateToOneWithWhereWithoutTableauxInput, GalerieUpdateWithoutTableauxInput>, GalerieUncheckedUpdateWithoutTableauxInput>
-  }
-
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type GalerieUpdateOneRequiredWithoutTableauxNestedInput = {
+    create?: XOR<GalerieCreateWithoutTableauxInput, GalerieUncheckedCreateWithoutTableauxInput>
+    connectOrCreate?: GalerieCreateOrConnectWithoutTableauxInput
+    upsert?: GalerieUpsertWithoutTableauxInput
+    connect?: GalerieWhereUniqueInput
+    update?: XOR<XOR<GalerieUpdateToOneWithWhereWithoutTableauxInput, GalerieUpdateWithoutTableauxInput>, GalerieUncheckedUpdateWithoutTableauxInput>
   }
 
   export type TableauCreateNestedManyWithoutLaGalerieInput = {
@@ -3722,6 +3830,7 @@ export namespace Prisma {
     nom_en: string
     presentation_fr: string
     presentation_en: string
+    order?: number
   }
 
   export type GalerieUncheckedCreateWithoutTableauxInput = {
@@ -3729,6 +3838,7 @@ export namespace Prisma {
     nom_en: string
     presentation_fr: string
     presentation_en: string
+    order?: number
   }
 
   export type GalerieCreateOrConnectWithoutTableauxInput = {
@@ -3752,6 +3862,7 @@ export namespace Prisma {
     nom_en?: StringFieldUpdateOperationsInput | string
     presentation_fr?: StringFieldUpdateOperationsInput | string
     presentation_en?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
   }
 
   export type GalerieUncheckedUpdateWithoutTableauxInput = {
@@ -3759,12 +3870,14 @@ export namespace Prisma {
     nom_en?: StringFieldUpdateOperationsInput | string
     presentation_fr?: StringFieldUpdateOperationsInput | string
     presentation_en?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
   }
 
   export type TableauCreateWithoutLaGalerieInput = {
     imagePath: string
     description_fr: string
     description_en: string
+    order?: number
   }
 
   export type TableauUncheckedCreateWithoutLaGalerieInput = {
@@ -3772,6 +3885,7 @@ export namespace Prisma {
     imagePath: string
     description_fr: string
     description_en: string
+    order?: number
   }
 
   export type TableauCreateOrConnectWithoutLaGalerieInput = {
@@ -3808,6 +3922,7 @@ export namespace Prisma {
     imagePath?: StringFilter<"Tableau"> | string
     description_fr?: StringFilter<"Tableau"> | string
     description_en?: StringFilter<"Tableau"> | string
+    order?: IntFilter<"Tableau"> | number
     laGalerieId?: StringFilter<"Tableau"> | string
   }
 
@@ -3816,12 +3931,14 @@ export namespace Prisma {
     imagePath: string
     description_fr: string
     description_en: string
+    order?: number
   }
 
   export type TableauUpdateWithoutLaGalerieInput = {
     imagePath?: StringFieldUpdateOperationsInput | string
     description_fr?: StringFieldUpdateOperationsInput | string
     description_en?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
   }
 
   export type TableauUncheckedUpdateWithoutLaGalerieInput = {
@@ -3829,6 +3946,7 @@ export namespace Prisma {
     imagePath?: StringFieldUpdateOperationsInput | string
     description_fr?: StringFieldUpdateOperationsInput | string
     description_en?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
   }
 
   export type TableauUncheckedUpdateManyWithoutLaGalerieInput = {
@@ -3836,6 +3954,7 @@ export namespace Prisma {
     imagePath?: StringFieldUpdateOperationsInput | string
     description_fr?: StringFieldUpdateOperationsInput | string
     description_en?: StringFieldUpdateOperationsInput | string
+    order?: IntFieldUpdateOperationsInput | number
   }
 
 

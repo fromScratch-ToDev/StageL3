@@ -42,7 +42,9 @@ export default function Galerie() {
     const searchParams = useSearchParams();
     const nom_fr = searchParams.get('nom');
     const currentGalerie = useContext(GaleriesContext).find(galerie => galerie.nom_fr === nom_fr);
-    const tableaux = useContext(TableauxContext).filter(tableau => tableau.laGalerieId === nom_fr);
+    const tableaux = useContext(TableauxContext)
+      .filter(tableau => tableau.laGalerieId === nom_fr)
+      .sort((a, b) => a.order - b.order);
     const [showMessage, setShowMessage] = useState(false);
 
     useEffect(() => {
@@ -81,19 +83,19 @@ export default function Galerie() {
       <>
         <section className='flex flex-col px-5 border-black border-y-1'>
           <NavigationGalerie currentGalerie={currentGalerie}/>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full">
-              {tableaux.map((tableau) => (
-                <div onClick={() => handleClick(tableau.id)} key={tableau.id} className="aspect-square relative bg-black/20 cursor-zoom-in">
-                  <Image
-                    src={tableau.imagePath}
-                    alt={`Image ${tableau.id}`}
-                    width={400}
-                    height={400}
-                    className="object-contain w-full h-full"
-                    />
-                </div >
-              ))}
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full">
+            {tableaux.map((tableau) => (
+              <div onClick={() => handleClick(tableau.id)} key={tableau.id} className="aspect-square relative bg-black/20 cursor-zoom-in">
+                <Image
+                  src={tableau.imagePath}
+                  alt={`Image ${tableau.id}`}
+                  width={400}
+                  height={400}
+                  className="object-contain w-full h-full"
+                  />
+              </div >
+            ))}
+          </div>
           <NavigationGalerie currentGalerie={currentGalerie}/>
         </section>
       </>      

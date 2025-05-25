@@ -13,6 +13,7 @@ model Tableau {
   imagePath      String
   description_fr String
   description_en String
+  order          Int     @default(0)
   laGalerieId    String
   laGalerie      Galerie @relation(fields: [laGalerieId], references: [nom_fr])
 }
@@ -22,5 +23,6 @@ model Galerie {
   nom_en          String
   presentation_fr String
   presentation_en String
+  order           Int        @default(0)
   tableaux        Tableau[]
 }
