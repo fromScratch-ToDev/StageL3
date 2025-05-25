@@ -6,7 +6,7 @@ module.exports = {
     sitemapSize: 7000,
     trailingSlash: false,
     generateIndexSitemap: true,
-    exclude: ['/admin'], // si tu veux exclure des routes
+    exclude: ['/admin/*'], // si tu veux exclure des routes
     // active le crawler pour découvrir les routes App Router
     transform: async (config, path) => {
       return {
