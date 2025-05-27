@@ -2,7 +2,6 @@
 import { LangContext } from "@/context/Context";
 import { useContext } from "react";
 
-
 export default function P(props : {text_fr : string | undefined, text_en : string | undefined, className? : string, size? : string  }) {
   const text_fr = props.text_fr;
   const text_en = props.text_en;
@@ -15,12 +14,35 @@ export default function P(props : {text_fr : string | undefined, text_en : strin
   };
   const lang = useContext(LangContext);
 
+  const parseTextWithLinks = (text: string) => {
+    const parts = text.split(/(<a>.*?<\/a>)/g);
+    
+    return parts.map((part, index) => {
+      if (part.startsWith('<a>') && part.endsWith('</a>')) {
+        const linkText = part.replace(/<\/?a>/g, '');
+        return (
+          <a key={index} href={linkText} className="underline text-blue-600 hover:text-blue-800">
+            {linkText}
+          </a>
+        );
+      }
+      return part;
+    });
+  };
+
+  const renderContent = (text: string | undefined) => {
+    return text?.split("\n").map((phrase, index) => 
+      phrase === "" ? 
+        <div key={index} className="p-2.5"></div> : 
+        <p key={phrase.charAt(0)+index+phrase.charAt(1)}>
+          {parseTextWithLinks(phrase)}
+        </p>
+    );
+  };
+
   return (
     <div className={`${sizeMap[size]} ${className}`}>
-      {lang === "FR" ? 
-      text_fr?.split("\n").map((phrase, index) => phrase === "" ? <div key={index} className="p-2.5"></div> : <p key={phrase.charAt(0)+index+phrase.charAt(1)}>{phrase}</p>) 
-      : 
-      text_en?.split("\n").map((phrase, index) => phrase === "" ? <div key={index} className="p-2.5"></div> : <p key={phrase.charAt(0)+index+phrase.charAt(1)}>{phrase}</p>)}
+      {lang === "FR" ? renderContent(text_fr) : renderContent(text_en)}
     </div>
   );
 }

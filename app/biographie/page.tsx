@@ -26,6 +26,9 @@ En 1975 je fus accueilli au Bost, premier ashram d’Arnaud Desjardins. Arnaud m
 En 1992 j’ai rencontré Amritanandamayi, grâce à ma compagne Françoise, et chaque année depuis, jusqu’à la pandémie du covid, nous sommes allés recevoir son Darshan lors de ses passages en France. Et chacun de nous est également allé la voir à Amritapuri Ashram, en Inde. 
 
 J’ai partagé ce chemin à travers plusieurs livres. Je garde une vraie gratitude à Charles Antoni qui m’a permis avec tant de gentillesse de partager cette quête intérieure en éditant ces ouvrages.
+
+
+Sur le site Partage d’un chemin <a>https://lartdefrancoismalespine.wordpress.com</a>, vous retrouverez les livres parus et les nouveaux textes mis en ligne chaque samedi.
 `
 
 const text_en = `I was born in 1948, in a family of painters.
@@ -59,6 +62,9 @@ In 1992, I met Amritanandamayi, thanks to my partner Françoise, and every year 
 
 
 I shared this  inner path through several books. I remain truly grateful to Charles Antoni, who so kindly allowed me to share this inner quest by publishing these works.
+
+
+On the website Partage d’un chemin <a>https://lartdefrancoismalespine.wordpress.com</a>, you’ll find the published books and new texts uploaded every Saturday.
 `
 
 function Biographie() {
