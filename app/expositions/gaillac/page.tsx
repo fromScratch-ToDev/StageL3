@@ -8,6 +8,7 @@ import e06 from "@/public/images/exposition_gaillac/exposition-06.jpg"
 import e07 from "@/public/images/exposition_gaillac/exposition-07.jpg"
 import { EmblaOptionsType } from "embla-carousel"
 import Image, { StaticImageData } from "next/image"
+import Link from "next/link"
 
 const text_fr_discours_ouverture = `L’image a toujours tenu une place prépondérante dans ma vie.
 
@@ -130,7 +131,12 @@ function Expositions() {
         </div>
       </div>  
       <H3 text_fr='Discours d’ouverture' text_en='Opening speech' className="mt-5 text-center"></H3>
-      <P text_fr={text_fr_discours_ouverture} text_en={text_en_discours_ouverture} className="text-justify max-w-[65ch] m-auto"></P>
+      <P text_fr={text_fr_discours_ouverture} text_en={text_en_discours_ouverture} className="text-justify max-w-[65ch] m-auto pb-5"></P>
+      <H3 text_fr="Exposition Los Angeles" text_en="Los Angeles exhibition" ></H3>
+      <Link href="/expositions/los_angeles"><P
+        text_fr="Cliquer ici pour voir les affiches et articles de presses de l'exposition de Los Angeles"
+        text_en="Click here to see the posters and press articles from the Los Angeles exhibition."
+      ></P></Link>
     </>
   )
 }
