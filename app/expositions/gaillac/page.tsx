@@ -1,4 +1,5 @@
 "use client"
+import Button from "@/components/Button/Button"
 import Carousel from "@/components/Carousel/Carousel"
 import H2 from "@/components/Text/H2"
 import H3 from "@/components/Text/H3"
@@ -132,11 +133,11 @@ function Expositions() {
       </div>  
       <H3 text_fr='Discours d’ouverture' text_en='Opening speech' className="mt-5 text-center"></H3>
       <P text_fr={text_fr_discours_ouverture} text_en={text_en_discours_ouverture} className="text-justify max-w-[65ch] m-auto pb-5"></P>
-      <H3 text_fr="Exposition Los Angeles" text_en="Los Angeles exhibition" ></H3>
-      <Link href="/expositions/los_angeles"><P
-        text_fr="Cliquer ici pour voir les affiches et articles de presses de l'exposition de Los Angeles"
-        text_en="Click here to see the posters and press articles from the Los Angeles exhibition."
-      ></P></Link>
+      
+      <H2 text_fr="Exposition Los Angeles" text_en="Los Angeles exhibition" ></H2>
+      <Link href="/expositions/los_angeles">
+            <Button text_fr="Découvrir" text_en="Discover"></Button>
+      </Link>
     </>
   )
 }

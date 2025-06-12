@@ -136,7 +136,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\thiba\\Documents\\espaces_interieurs\\src\\app\\generated\\prisma",
+      "value": "/home/thibault/Documents/Code/Site peinture François/espaces_interieurs/src/app/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -145,12 +145,12 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "windows",
+        "value": "debian-openssl-3.0.x",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\thiba\\Documents\\espaces_interieurs\\prisma\\schema.prisma",
+    "sourceFilePath": "/home/thibault/Documents/Code/Site peinture François/espaces_interieurs/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -175,7 +175,7 @@ const config = {
   },
   "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../src/app/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Tableau {\n  id             Int     @id @default(autoincrement())\n  imagePath      String\n  description_fr String\n  description_en String\n  order          Int     @default(0)\n  laGalerieId    String\n  laGalerie      Galerie @relation(fields: [laGalerieId], references: [nom_fr])\n}\n\nmodel Galerie {\n  nom_fr          String    @id\n  nom_en          String\n  presentation_fr String\n  presentation_en String\n  order           Int       @default(0)\n  tableaux        Tableau[]\n}\n",
   "inlineSchemaHash": "7f1eb417a20a470bdddc5eec4223fc11aae1b363779b65d73597266979931866",
-  "copyEngine": true
+  "copyEngine": false
 }
 
 const fs = require('fs')
@@ -212,9 +212,3 @@ const PrismaClient = getPrismaClient(config)
 exports.PrismaClient = PrismaClient
 Object.assign(exports, Prisma)
 
-// file annotations for bundling tools to include these files
-path.join(__dirname, "query_engine-windows.dll.node");
-path.join(process.cwd(), "src/app/generated/prisma/query_engine-windows.dll.node")
-// file annotations for bundling tools to include these files
-path.join(__dirname, "schema.prisma");
-path.join(process.cwd(), "src/app/generated/prisma/schema.prisma")
