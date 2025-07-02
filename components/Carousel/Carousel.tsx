@@ -4,7 +4,7 @@ import { EmblaOptionsType } from 'embla-carousel'
 import useEmblaCarousel from 'embla-carousel-react'
 import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, {useState} from 'react'
 import P from '../Text/P'
 import {
   NextButton,
@@ -15,6 +15,7 @@ import {
   SelectedSnapDisplay,
   useSelectedSnapDisplay
 } from './CarouselSelectedSnapDisplay'
+import { CalendarDaysIcon } from 'lucide-react'
 
 type Slide = {
   nom_fr? : string,
@@ -42,45 +43,46 @@ const Carousel: React.FC<PropType> = (props) => {
   } = usePrevNextButtons(emblaApi)
   
   const { selectedSnap, snapCount } = useSelectedSnapDisplay(emblaApi)
+  const [isMouseDown, setIsMouseDown] = useState(false);
 
 
   return (
     <section className="embla  border-b-1 border-black">
      
-      <div className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container gap-5 md:gap-10  ">
-            {slides.map((slide, index) => {
-          const key = slide.path.toString() + index;
-          const content = (
-            <>
-              <div
-                style={{ aspectRatio: `${slide.aspect}` }}
-                className={`embla__slide ${className} aspect-${slide.aspect}`}
-              >
-                <Image
-                  className={` object-cover`}
-                  fill
-                  src={slide.path}
-                  sizes="(min-width: 1024px) 25vw, 50vw"
-                  alt="image de couverture de la galerie"
+      <div className={`embla__viewport ${isMouseDown ? 'cursor-grabbing' : 'cursor-grab'}`} ref={emblaRef}>
+        <div className={`embla__container gap-5 md:gap-10`} onMouseDown={() => setIsMouseDown(true)} onMouseUp={() => setIsMouseDown(false)} onMouseLeave={() => setIsMouseDown(false)}>
+          {slides.map((slide, index) => {
+            const key = slide.path.toString() + index;
+            const content = (
+              <>
+                <div
+                  style={{ aspectRatio: `${slide.aspect}` }}
+                  className={`embla__slide ${className} aspect-${slide.aspect}`}
+                >
+                  <Image
+                    className={` object-cover`}
+                    fill
+                    src={slide.path}
+                    sizes="(min-width: 1024px) 25vw, 50vw"
+                    alt="image de couverture de la galerie"
+                  />
+                </div>
+                <P
+                  className="text-center cursor-pointer inline-block"
+                  text_fr={slide.nom_fr}
+                  text_en={slide.nom_en}
                 />
-              </div>
-              <P
-                className="text-center"
-                text_fr={slide.nom_fr}
-                text_en={slide.nom_en}
-              />
-            </>
-          );
+              </>
+            );
 
-          return slide.redirect ? (
-            <Link href={slide.redirect} key={key}>
-              {content}
-            </Link>
-          ) : (
-            <div key={key}>{content}</div>
-          );
-        })}
+            return slide.redirect ? (
+                <Link href={slide.redirect} key={key} className={`flex flex-col items-center ${isMouseDown ? 'cursor-grabbing' : 'cursor-grab'}`}> 
+                {content}
+                </Link>
+            ) : (
+              <div key={key}>{content}</div>
+            );
+          })}
         </div>
       </div>
 
