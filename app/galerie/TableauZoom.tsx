@@ -3,10 +3,10 @@
 import Button from '@/components/Button/Button';
 import Loader from '@/components/Loader/Loader';
 import P from '@/components/Text/P';
-import { TableauxContext } from '@/context/Context';
+import { TableauxContext, LangContext } from '@/context/Context';
 import Close from '@/public/svg/Close';
 import Image from 'next/image';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import ArrowTurnUpLeft from '../../public/svg/ArrowTurnUpLeft';
 
 function TableauZoom(props : {handleClick : ()=>void, id : number}) {
@@ -14,9 +14,27 @@ function TableauZoom(props : {handleClick : ()=>void, id : number}) {
   const tableau = useContext(TableauxContext).find(tableau => tableau.id === id);
   const handleClick = props.handleClick;
   const [loading, setLoading] = useState(true);
+  const [showTooltip, setShowTooltip] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
+  const lang = useContext(LangContext);
+
+  useEffect(() => {
+    if (!loading && !hasInteracted) {
+      const timer = setTimeout(() => {
+        setShowTooltip(true);
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [loading, hasInteracted]);
 
   function handleWheel(e: React.WheelEvent<HTMLImageElement>) {
     e.preventDefault();
+    
+    if (!hasInteracted) {
+      setHasInteracted(true);
+      setShowTooltip(false);
+    }
     
     const element = e.currentTarget;
     const currentTransform = element.style.transform || '';
@@ -47,6 +65,11 @@ function TableauZoom(props : {handleClick : ()=>void, id : number}) {
    */
   function handleMouseDown(e: React.MouseEvent<HTMLImageElement>) {
     e.preventDefault();
+
+    if (!hasInteracted) {
+      setHasInteracted(true);
+      setShowTooltip(false);
+    }
 
     const startX = e.clientX;
     const startY = e.clientY;
@@ -88,6 +111,32 @@ function TableauZoom(props : {handleClick : ()=>void, id : number}) {
           onLoadingComplete={() => setLoading(false)}
           onWheel={(e) => handleWheel(e)}
           onMouseDown={(e) => handleMouseDown(e)} />
+        
+        {showTooltip && (
+          <div className="hidden lg:block absolute bottom-4 right-4 bg-secondary text-primary p-4 rounded-lg z-20 max-w-sm text-center border border-primary">
+            <div className="text-base">
+              {lang === 'EN' ? (
+                <>
+                  <p className="mb-2">💡 <strong>How to interact:</strong></p>
+                  <p className="mb-1">🖱️ <strong>Zoom:</strong> Use mouse wheel</p>
+                  <p>✋ <strong>Move:</strong> Click and drag</p>
+                </>
+              ) : (
+                <>
+                  <p className="mb-2">💡 <strong>Comment interagir :</strong></p>
+                  <p className="mb-1">🖱️ <strong>Zoomer :</strong> Utilisez la molette</p>
+                  <p>✋ <strong>Déplacer :</strong> Cliquez et faites glisser</p>
+                </>
+              )}
+            </div>
+            <button 
+              onClick={() => setShowTooltip(false)}
+              className="mt-3 text-sm opacity-70 hover:opacity-100 cursor-pointer"
+            >
+              {lang === 'EN' ? 'Got it!' : 'Compris !'}
+            </button>
+          </div>
+        )}
       </div>
       {!loading && 
       <div className='w-screen h-10 flex items-center justify-center'>
@@ -98,6 +147,5 @@ function TableauZoom(props : {handleClick : ()=>void, id : number}) {
   )
 }
 }
-
 
 export default TableauZoom
